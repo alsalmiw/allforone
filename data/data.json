@@ -1,0 +1,17 @@
+{
+    "studentNames":[
+        {
+            "firstName":"",
+            "lastName":"",
+            "email":"",
+            "hobbies":["","",""]
+        },
+        {
+            "firstName":"",
+            "lastName":"",
+            "email":""
+        }
+    ],
+    "cards":["","",""]
+}
+
