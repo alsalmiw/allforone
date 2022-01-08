@@ -12,7 +12,7 @@ let url = "";
 let studentDrctUrl =
   "https://studentdirectory.azurewebsites.net/StudentDirectory/";
 let injectHere = document.getElementById("injectHere");
-let contClass = "col-8 p-0";
+let contClass = "col-12 col-md-8 p-0 qPages";
 let selectedOption = "";
 let questionsContainer;
 let isResultBox;
@@ -20,7 +20,7 @@ let isResultBox;
 function homePage() {
   injectHere.innerHTML = "";
   injectHere.className =
-    "col-8 content-body p-0 d-flex justify-content-center align-items-center";
+    "col-12 col-md-8 content-body p-0 d-flex justify-content-center align-items-center";
 
   let h1 = document.createElement("h1");
   h1.textContent = "All for One Project";
@@ -332,35 +332,12 @@ let resultArr = [];
         let modelConstruct = getModelConstruct(pageNum, resultArr);
         fetchRes = await modelFetch(url, modelConstruct);
       }
-      //else if(pageNum ==8){
-        
-      // //urlFetch(url);  
-      // fetchRes = await urlFetch(url + resultArr[0]);
-      // } 
       else {
-
-        // Checking to see if pagenum is 7 also passing in the input field element to the value of 
-        //the element in our submit function 
-
-
-        // if (pageNum == 7) {
-        //   //adding our value to url 
-        //   url += userInput1.value
-        //   console.log(url);
-        // } else {
           for (let j = 0; j < resultArr.length; j++) {
             url += resultArr[j] + "/";
-            
           }
-         // debugger
-        //}
-        console.log(url);
-        //urlFetch(url);  
         fetchRes = await urlFetch(url);
-        console.log(url);
-
       }
-
       if (fetchRes.includes("One or more validation errors occurred")) {
         fetchRes =
           "Error! One or more validation errors occurred. please enter a valid choice.";
@@ -383,21 +360,22 @@ let resultArr = [];
         } 
       }
 
-      //console.log(fetchRes.json());
       setTimeout(() => { }, 1000);
       if (isResultBox == true) {
         //if page num with drop down menu
         console.log(questionsContainer[0].children.length);
 
-        if(pageNum==1 || pageNum==2 || pageNum==3 || pageNum==4 || pageNum==6 || pageNum==9){
-          questionsContainer[0].removeChild(questionsContainer[0].lastChild);
-        }
-        else if (pageNum==7 || pageNum==8)
+        // if(pageNum==1 || pageNum==2 || pageNum==3 || pageNum==4 || pageNum==6 || pageNum==9 ||pageNum==5){
+        //   questionsContainer[0].removeChild(questionsContainer[0].lastChild);
+        // }
+       if (pageNum==7 || pageNum==8)
         { 
           if(questionsContainer[0].children.length>=4){
             questionsContainer[0].removeChild(questionsContainer[0].lastChild);
           }
-
+        }
+        else{
+          questionsContainer[0].removeChild(questionsContainer[0].lastChild);
         }
         questionsContainer[0].appendChild(makeResultsContainer(fetchRes));
 

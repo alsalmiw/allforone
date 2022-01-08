@@ -50,7 +50,7 @@ body{
 .theme-switch-wrapper{
     width: 100vw;
     height: 7vh;
-    padding: 10px 40px;
+    padding: 2vh 40px;
     background: var(--secondaryColor);
 }
 
@@ -181,12 +181,24 @@ h4{
   color: var(--primaryColor);
   font-size: 1.5rem;
 }
+h2{
+  margin: 0;
+}
+.pageTitle{
+  margin: 0;
+}
+
 
 /* Dark Mode Toggle */
+.theme-switch-wrapper{
+  height: 7vh;
+  padding: 1vh 13px;
+}
+
 .theme-switch-mode {
     display: flex;
     justify-content:flex-end;
-    right: 25px;
+    right: 20px;
     top: 30px;
   }
   
@@ -251,7 +263,7 @@ h4{
   }
   
   .fas {
-    font-size: 30px;
+    font-size: 1.87rem;
     margin-right: 5px;
   }
   .fa-sun{
@@ -259,4 +271,92 @@ h4{
   }
   .fa-moon{
       color: white;
+  }
+
+  /* For SMALL SCREENS */
+  @media screen and (max-width:600px) {
+    .pageContainer{
+      padding: 20px;
+      max-height: 78vh;
+  }
+
+    .btn-secondary{
+      position: relative;
+      width:90vw;
+      padding: 10px 30px;
+      margin-left: 15px;
+  }
+
+  .resultsBox{
+    padding: 1rem;
+    margin-top:1rem;
+    font-size: 1.25rem;
+  }
+  .inputData{
+    margin-top: 0.7rem;
+  }
+
+    h4{
+      font-size: 1.2em ;
+    }
+    .top-bar-nav a , .toggle-text{
+      margin-right: 25px;
+      font-size: 15px;
+  }
+  .row{
+    --bs-gutter-x: 0;
+  }
+  label h4{
+    font-size: 0.9em;
+  }
+  .form-select{
+    min-width: 87vw;
+  }
+
+  button {
+    padding: 1rem 2rem;
+    font-size: 25px;
+  }
+
+.content-body{
+    min-height: 100vh;
+}
+
+.qPages{
+  min-height: 100vh;
+  margin-top: 6px;;
+}
+
+  /* Dark Mode Toggle */
+  .theme-switch-mode {
+    right: 25px;
+    top: 30px;
+  }
+  
+  .theme-switch-mode span {
+    margin-right: 0px;
+  }
+  
+  .toggle-text {
+    top: -3px;
+    right: 1px;
+  }
+  
+  .theme-switch {
+    height: 25px;
+    width: 50px;
+  }
+  
+  .slider::before {
+    bottom: 3.5px;
+    height: 18px;
+    left: 3px;
+    width: 20px;
+  }
+  
+  .fas {
+    font-size: 1.5rem;
+    margin-right: 5px;
+  }
+
   }

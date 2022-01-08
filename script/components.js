@@ -19,7 +19,7 @@ function makeSubmitBtn(){
     button.id='submitBtn';
 
     let buttonDiv=document.createElement('div');
-    buttonDiv.className='d-grid gap-2 d-md-flex justify-content-md-end';
+    buttonDiv.className='d-grid gap-2 d-md-flex justify-content-center justify-content-md-end ';
 
     buttonDiv.appendChild(button);
 
@@ -64,7 +64,7 @@ function makeInputAndLabel(question, InputNum){
     inputDiv.appendChild(input);
 
     let container=document.createElement('div');
-    container.className='row inputData pt-4';
+    container.className='row inputData pt-md-4';
 
     container.appendChild(label);
     container.appendChild(inputDiv);
@@ -102,7 +102,7 @@ function makeDropMenuAndLabel(question, options){
     }
 
     let divDropM=document.createElement('div');
-        divDropM.className='row inputData pt-4';
+        divDropM.className='row inputData pt-md-4';
 
         divDropM.appendChild(label);
         divDropM.appendChild(select);
@@ -117,7 +117,7 @@ function makeResultsContainer(result)
     resultBox.textContent=result;
 
     let resultDiv=document.createElement('div');
-    resultDiv.className='row inputData pt-4 d-flex justify-content-center';
+    resultDiv.className='row inputData pt-md-4 d-flex justify-content-center';
 
     resultDiv.appendChild(resultBox);
 
