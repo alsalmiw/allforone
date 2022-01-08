@@ -1,3 +1,4 @@
+// ---------- PROJECT BY: WALAA ALSALMI, JAN 2022 ---------//
 import {
   makePageTitle,
   makeInstructions,
@@ -16,7 +17,9 @@ let contClass = "col-12 col-md-8 p-0 qPages";
 let selectedOption = "";
 let questionsContainer;
 let isResultBox;
+let resultArr = [];
 
+// ---------- PAGES ---------//
 function homePage() {
   injectHere.innerHTML = "";
   injectHere.className =
@@ -36,41 +39,30 @@ function homePage() {
 function miniCh1() {
   isResultBox=false;
   injectHere.innerHTML = "";
+  url = urlBase + `miniCh1/`;
   injectHere.className = contClass;
   let instructions = "Let the computer say Hi to you!";
   let questions = ["What is your name:"];
   let page = "One",
-    pageNum = 1;
-  componentsTxtBoxPagesOnly(page, pageNum, instructions, questions);
+  pageNum = 1;
 
-  //get values
-  // let name='Walaa';//user input
-  url = urlBase + `miniCh1/`;
-  // urlFetch(url);
+  componentsTxtBoxPagesOnly(page, pageNum, instructions, questions);
   document.getElementById("submitBtn").addEventListener("click",  function (e) {
-    console.log('submit btn clicked?');
     submitEvntLstnr(questions, url, pageNum);
   });
-  //submitEvntLstnr(questions, url, pageNum);
 }
 
 function miniCh2() {
   isResultBox=false;
-  //clear body and url
-  // let num1=4,//user input
-  // num2= 6;//user input
   url = urlBase + `miniCh2/`;
-  // urlFetch(url);
-
   injectHere.innerHTML = "";
   injectHere.className = contClass;
   let instructions = "Find out the sum of two numbers";
   let questions = ["Enter First Number:", "Enter Second Number:"];
   let page = "Two",
-    pageNum = 2;
-  componentsTxtBoxPagesOnly(page, pageNum, instructions, questions);
+  pageNum = 2;
 
-  //submitEvntLstnr(questions, url, pageNum);
+  componentsTxtBoxPagesOnly(page, pageNum, instructions, questions);
   document.getElementById("submitBtn").addEventListener("click",  function (e) {
     submitEvntLstnr(questions, url, pageNum);
   });
@@ -79,7 +71,6 @@ function miniCh2() {
 function miniCh3() {
   isResultBox=false;
   url = urlBase + `miniCh3/`;
-  // urlFetch(url);
   injectHere.innerHTML = "";
   injectHere.className = contClass;
   let instructions = "Let the Computer you your name and the time you woke up!";
@@ -90,13 +81,11 @@ function miniCh3() {
   document.getElementById("submitBtn").addEventListener("click",  function (e) {
     submitEvntLstnr(questions, url, pageNum);
   });
-  //submitEvntLstnr(questions, url, pageNum);
 }
 
 function miniCh4() {
   isResultBox=false;
   url = urlBase + `miniCh4/`;
-  // urlFetch(url);
   injectHere.innerHTML = "";
   injectHere.className = contClass;
   let instructions = "Find out the relationship between two numbers.";
@@ -108,13 +97,11 @@ function miniCh4() {
   document.getElementById("submitBtn").addEventListener("click",  function (e) {
     submitEvntLstnr(questions, url, pageNum);
   });
-  //submitEvntLstnr(questions, url, pageNum);
 }
 
 function miniCh5() {
   isResultBox=false;
   url = urlBase + "madLib";
-  // modelFetch(url, madLibModel);
   injectHere.innerHTML = "";
   injectHere.className = contClass;
   let instructions =
@@ -142,13 +129,11 @@ function miniCh5() {
   document.getElementById("submitBtn").addEventListener("click",  function (e) {
     submitEvntLstnr(questions, url, pageNum);
   });
-  //submitEvntLstnr(questions, url, pageNum);
 }
 
 function miniCh6() {
   isResultBox=false;
   url = urlBase + `miniCh6/`;
-  // urlFetch(url);
   injectHere.innerHTML = "";
   injectHere.className = contClass;
   let instructions = "Find out if a number is even or odd";
@@ -160,16 +145,12 @@ function miniCh6() {
   document.getElementById("submitBtn").addEventListener("click",  function (e) {
     submitEvntLstnr(questions, url, pageNum);
   });
-  //submitEvntLstnr(questions, url, pageNum);
 }
 
 function miniCh7() {
   selectedOption='';
-
   isResultBox=false;
-  // url=urlBase+`miniCh7/${string}`;
   let url = urlBase+`miniCh7/`;
-  // urlFetch(url);
   injectHere.className = contClass;
   injectHere.innerHTML = "";
   let instructions = "Reverse a Word or a Number!";
@@ -180,24 +161,12 @@ function miniCh7() {
     pageNum = 7;
   componentsTxtBoxDropMenu(page, pageNum, instructions, question, options);
   let userOption = menuEvenListener(options, OptInstructions);
-  //get selected option not whole URL
-  //Get the value from the input field
-  //you have to build the URL 
-
-  //This is for the dropdown menus 
   getMenuValue(question, url, pageNum);
-  //submitEvntLstnr(question, url, pageNum);
 }
 
 function miniCh8() {
   isResultBox=false;
-  //student Directory
-  // let firstName='first/Walaa'; //`first/${userInput}` userInput
-  // let lastName='last/alsalmi';//userInput
-  // let hobby='hobbies/video games';//userInput
-  // urlFetch(url);
   selectedOption='';
-
   injectHere.className = contClass;
   injectHere.innerHTML = "";
   let instructions =
@@ -214,20 +183,13 @@ function miniCh8() {
 
   componentsTxtBoxDropMenu(page, pageNum, instructions, question, options);
   let userOption = menuEvenListener(options, OptInstructions);
-  
   let url = studentDrctUrl + userOption  ;
   getMenuValue(question, url, pageNum);
-  //submitEvntLstnr(question, url, pageNum);
 }
 
 function miniCh9() {
   selectedOption='';
-
   isResultBox=false;
-  // let resturant='arabic'; //userInput
-  // url=urlBase+`miniCh9/${resturant}`
-  // urlFetch(url);
-
   injectHere.className = contClass;
   injectHere.innerHTML = "";
   let instructions = "Find a random resturant in your Area!";
@@ -241,82 +203,58 @@ function miniCh9() {
   let url = urlBase + `miniCh9/`;
   getMenuValue(question, url, pageNum);
 }
- 
-function getMenuValue(question, urlBase, pageNum) {
- selectedOption='';
 
-  //getting the user choice 
+// ---------- EVENT LISTENERS ---------//
+
+function menuEvenListener(options, OptInstructions) {
   let userChoice = document.getElementById("userChoice");
-
-
   userChoice.addEventListener("change", (e) => {
-    // storing our value in a variable 
     selectedOption = e.target.value;
 
-    //checking for 9 because the url needs to be built differently 
+    for (let i = 0; i < options.length; i++) {
+      if (selectedOption == options[i]) {
+        let num = 1;
+
+        if (questionsContainer.children.length >= 3) {
+          questionsContainer.removeChild(questionsContainer.children[3]);
+          questionsContainer.removeChild(questionsContainer.children[2]);
+        }
+
+        questionsContainer.appendChild(
+          makeInputAndLabel(OptInstructions[i], num)
+        );
+      } else if (selectedOption == "null") {
+        if (questionsContainer.children.length >= 3) {
+          questionsContainer.removeChild(questionsContainer.children[2]);
+        }
+      }
+    }
+  });
+
+  return selectedOption;
+}
+
+function getMenuValue(question, urlBase, pageNum) {
+ selectedOption='';
+  let userChoice = document.getElementById("userChoice");
+
+  userChoice.addEventListener("change", (e) => {
+    selectedOption = e.target.value;
+
     if (pageNum === 9) {
       url = urlBase + selectedOption;
     } else {
-       
-      // //this for 7 depending on the value of the dropdown we need to build the url different
-      //let userInput = document.getElementById("userInput1");
        url=urlBase+`${selectedOption.replaceAll(" ",'')}/`
-      // if (selectedOption == "Word") {
-      //   url += `${urlBase}miniCh7/`;
-      // } else if (selectedOption == "Number") {
-      //   url += `${urlBase}miniCh7Int/`;
-      // }
-      console.log(url);
     }
-    
-    
   });
   document.getElementById("submitBtn").addEventListener("click",  function (e) {
     submitEvntLstnr(question, url, pageNum);
-    //selectedOption='';
   });
 }
 
-function getModelConstruct(pageNum, resultArr) {
-  let modelConstruct;
-  switch (pageNum) {
-    case 5:
-      modelConstruct = {
-        animal1: `${resultArr[0]}`,
-        animal2: `${resultArr[1]}`,
-        animal3: `${resultArr[2]}`,
-        action0: `${resultArr[3]}`,
-        place: `${resultArr[4]}`,
-        emotion1: `${resultArr[5]}`,
-        emotion2: `${resultArr[6]}`,
-        action1: `${resultArr[7]}`,
-        action2: `${resultArr[8]}`,
-        action3: `${resultArr[9]}`,
-        town1: `${resultArr[10]}`,
-        number1: `${resultArr[11]}`,
-        number2: `${resultArr[12]}`,
-        object1: `${resultArr[13]}`,
-      };
-      break;
-
-    default:
-      break;
-  }
-  return modelConstruct;
-}
-
-;
-
-let resultArr = [];
-
+// ---------- SUBMIT BUTTON EVENT LISTENER ---------//
 
  async function submitEvntLstnr(questions, url, pageNum) {
- // document
-  //  .getElementById("submitBtn")
-   // .addEventListener("click", async function (e) {
-      let prevUrl=url;
-  
-      console.log(url);
       let questionsContainer = document.getElementsByClassName("pageContainer");
 
       for (let i = 1; i <= questions.length; i++) {
@@ -345,29 +283,20 @@ let resultArr = [];
      
       if(pageNum==8)
       {
-        console.log(fetchRes)
         if(fetchRes=='[]')
         {
           fetchRes ='There are no matches!'
         }
         else{
           fetchRes= JSON.parse(fetchRes);
-        console.log(fetchRes);
         fetchRes = fetchRes.map(name => 
           `${name.firstName}  ${name.lastName} `
-          
         );
         } 
       }
 
       setTimeout(() => { }, 1000);
       if (isResultBox == true) {
-        //if page num with drop down menu
-        console.log(questionsContainer[0].children.length);
-
-        // if(pageNum==1 || pageNum==2 || pageNum==3 || pageNum==4 || pageNum==6 || pageNum==9 ||pageNum==5){
-        //   questionsContainer[0].removeChild(questionsContainer[0].lastChild);
-        // }
        if (pageNum==7 || pageNum==8)
         { 
           if(questionsContainer[0].children.length>=4){
@@ -378,26 +307,20 @@ let resultArr = [];
           questionsContainer[0].removeChild(questionsContainer[0].lastChild);
         }
         questionsContainer[0].appendChild(makeResultsContainer(fetchRes));
-
         isResultBox = true;
         url = resetUrl(pageNum, url, resultArr);
-        console.log("What is happening here",url);
         resultArr = [];
       } else {
         questionsContainer[0].appendChild(makeResultsContainer(fetchRes));
-
         url = resetUrl(pageNum, url, resultArr);
-        console.log("What is happening here also: ",url);
         isResultBox = true;
         resultArr = [];
       }
-   // });
 }
 
 function resetUrl(pageNum, url, resultArr) {
   if (!pageNum == 5 || !pageNum==8) {
     for (let d = 0; d < resultArr.length; d++) {
-      console.log(url);
       let deleteUrl = resultArr[d] + "/";
       url = url.slice(0, -deleteUrl.length);
     }
@@ -405,6 +328,8 @@ function resetUrl(pageNum, url, resultArr) {
   return url;
 }
 
+
+// ---------- ASSEMBLING COMPONENTS ON PAGES - TRIGGERED WHEN PAGE IS SELECTED ---------//
 function componentsTxtBoxPagesOnly(page, pageNum, instructions, questions) {
   let questionsContainer = document.createElement("div");
 
@@ -437,39 +362,41 @@ function componentsTxtBoxDropMenu(
   injectHere.appendChild(makeSubmitBtn());
 }
 
-function menuEvenListener(options, OptInstructions) {
-  let userChoice = document.getElementById("userChoice");
-  userChoice.addEventListener("change", (e) => {
-    selectedOption = e.target.value;
+// ---------- MODEL CONSTRUCTOR - HAS ABILITY TO ADD MORE---------//
+function getModelConstruct(pageNum, resultArr) {
+  let modelConstruct;
+  switch (pageNum) {
+    case 5:
+      modelConstruct = {
+        animal1: `${resultArr[0]}`,
+        animal2: `${resultArr[1]}`,
+        animal3: `${resultArr[2]}`,
+        action0: `${resultArr[3]}`,
+        place: `${resultArr[4]}`,
+        emotion1: `${resultArr[5]}`,
+        emotion2: `${resultArr[6]}`,
+        action1: `${resultArr[7]}`,
+        action2: `${resultArr[8]}`,
+        action3: `${resultArr[9]}`,
+        town1: `${resultArr[10]}`,
+        number1: `${resultArr[11]}`,
+        number2: `${resultArr[12]}`,
+        object1: `${resultArr[13]}`,
+      };
+      break;
 
-    for (let i = 0; i < options.length; i++) {
-      if (selectedOption == options[i]) {
-        let num = 1;
-
-        if (questionsContainer.children.length >= 3) {
-          questionsContainer.removeChild(questionsContainer.children[3]);
-          questionsContainer.removeChild(questionsContainer.children[2]);
-        }
-
-        questionsContainer.appendChild(
-          makeInputAndLabel(OptInstructions[i], num)
-        );
-      } else if (selectedOption == "null") {
-        if (questionsContainer.children.length >= 3) {
-          questionsContainer.removeChild(questionsContainer.children[2]);
-        }
-      }
-    }
-  });
-
-  return selectedOption;
+    default:
+      break;
+  }
+  return modelConstruct;
 }
+
+// ---------- URL AND MODEL FETCHES---------//
 
 function urlFetch(url) {
   return fetch(url)
     .then((resp) => resp.text())
     .then((data) => {
-      console.log(data)
       return data;
     });
 }
@@ -488,6 +415,19 @@ function modelFetch(url, model) {
     });
 }
 
+// ---------- PAGES EVENT LISTENERS ---------//
+document.getElementById("homeBtn").addEventListener("click", homePage);
+document.getElementById("btn1").addEventListener("click", miniCh1);
+document.getElementById("btn2").addEventListener("click", miniCh2);
+document.getElementById("btn3").addEventListener("click", miniCh3);
+document.getElementById("btn4").addEventListener("click", miniCh4);
+document.getElementById("btn5").addEventListener("click", miniCh5);
+document.getElementById("btn6").addEventListener("click", miniCh6);
+document.getElementById("btn7").addEventListener("click", miniCh7);
+document.getElementById("btn8").addEventListener("click", miniCh8);
+document.getElementById("btn9").addEventListener("click", miniCh9);
+
+// ---------- NOTES ---------//
 // function fetchEx(){
 // fetch('https://allminichallenges.azurewebsites.net/MiniChallenges/miniCh1/walaa')
 // .then (
@@ -531,13 +471,4 @@ function modelFetch(url, model) {
 
 //modelFetch(madLibUrl, madLibModel);
 //urlMethodEx();
-document.getElementById("homeBtn").addEventListener("click", homePage);
-document.getElementById("btn1").addEventListener("click", miniCh1);
-document.getElementById("btn2").addEventListener("click", miniCh2);
-document.getElementById("btn3").addEventListener("click", miniCh3);
-document.getElementById("btn4").addEventListener("click", miniCh4);
-document.getElementById("btn5").addEventListener("click", miniCh5);
-document.getElementById("btn6").addEventListener("click", miniCh6);
-document.getElementById("btn7").addEventListener("click", miniCh7);
-document.getElementById("btn8").addEventListener("click", miniCh8);
-document.getElementById("btn9").addEventListener("click", miniCh9);
+
