@@ -73,7 +73,6 @@ function makeInputAndLabel(question, InputNum){
 }
 
 function makeDropMenuAndLabel(question, options){
-    console.log('hello');
     let h4 = document.createElement('h4');
     h4.textContent=question;
 
