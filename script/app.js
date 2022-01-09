@@ -19,12 +19,33 @@ let questionsContainer;
 let isResultBox;
 let resultArr = [];
 
+// ------------ DROP MENU CHANGING------//
+let dropNavIcon=document.getElementById('drop-nav-icon');
+let dropNav=document.getElementById('drop-nav');
+let buttonClicked=false;
+
+dropNavIcon.addEventListener('click', function(){
+    if(buttonClicked)
+    { 
+        dropNav.className='col-12 col-md-4 drop-nav d-md-none p-0 overlay-slide-up'; 
+    }
+    else
+    {
+        dropNav.className='col-12 col-md-4 drop-nav d-md-none p-0 overlay-slide-down';
+    }
+    buttonClicked=!buttonClicked;
+})
+
+function dropMenu(buttonClicked){
+  buttonClicked? dropNav.className='col-12 col-md-4 drop-nav d-md-none p-0 overlay-slide-up':dropNav.className='col-12 col-md-4 drop-nav d-md-none p-0 overlay-slide-down';
+
+}
+
 // ---------- PAGES ---------//
 function homePage() {
   injectHere.innerHTML = "";
   injectHere.className =
     "col-12 col-md-8 content-body p-0 d-flex justify-content-center align-items-center";
-
   let h1 = document.createElement("h1");
   h1.textContent = "All for One Project";
   let h4 = document.createElement("h4");
@@ -37,6 +58,7 @@ function homePage() {
 }
 
 function miniCh1() {
+  dropMenu(true);
   isResultBox=false;
   injectHere.innerHTML = "";
   url = urlBase + `miniCh1/`;
@@ -53,6 +75,7 @@ function miniCh1() {
 }
 
 function miniCh2() {
+  dropMenu(true);
   isResultBox=false;
   url = urlBase + `miniCh2/`;
   injectHere.innerHTML = "";
@@ -69,6 +92,7 @@ function miniCh2() {
 }
 
 function miniCh3() {
+  dropMenu(true);
   isResultBox=false;
   url = urlBase + `miniCh3/`;
   injectHere.innerHTML = "";
@@ -84,6 +108,7 @@ function miniCh3() {
 }
 
 function miniCh4() {
+  dropMenu(true);
   isResultBox=false;
   url = urlBase + `miniCh4/`;
   injectHere.innerHTML = "";
@@ -100,6 +125,7 @@ function miniCh4() {
 }
 
 function miniCh5() {
+  dropMenu(true);
   isResultBox=false;
   url = urlBase + "madLib";
   injectHere.innerHTML = "";
@@ -132,6 +158,7 @@ function miniCh5() {
 }
 
 function miniCh6() {
+  dropMenu(true);
   isResultBox=false;
   url = urlBase + `miniCh6/`;
   injectHere.innerHTML = "";
@@ -148,8 +175,9 @@ function miniCh6() {
 }
 
 function miniCh7() {
-  selectedOption='';
+  dropMenu(true);
   isResultBox=false;
+  selectedOption='';
   let url = urlBase+`miniCh7/`;
   injectHere.className = contClass;
   injectHere.innerHTML = "";
@@ -165,6 +193,7 @@ function miniCh7() {
 }
 
 function miniCh8() {
+  dropMenu(true);
   isResultBox=false;
   selectedOption='';
   injectHere.className = contClass;
@@ -188,8 +217,9 @@ function miniCh8() {
 }
 
 function miniCh9() {
-  selectedOption='';
+  dropMenu(true);
   isResultBox=false;
+  selectedOption='';
   injectHere.className = contClass;
   injectHere.innerHTML = "";
   let instructions = "Find a random resturant in your Area!";
@@ -417,15 +447,61 @@ function modelFetch(url, model) {
 
 // ---------- PAGES EVENT LISTENERS ---------//
 document.getElementById("homeBtn").addEventListener("click", homePage);
-document.getElementById("btn1").addEventListener("click", miniCh1);
-document.getElementById("btn2").addEventListener("click", miniCh2);
-document.getElementById("btn3").addEventListener("click", miniCh3);
-document.getElementById("btn4").addEventListener("click", miniCh4);
-document.getElementById("btn5").addEventListener("click", miniCh5);
-document.getElementById("btn6").addEventListener("click", miniCh6);
-document.getElementById("btn7").addEventListener("click", miniCh7);
-document.getElementById("btn8").addEventListener("click", miniCh8);
-document.getElementById("btn9").addEventListener("click", miniCh9);
+// document.getElementById("btn1").addEventListener("click", miniCh1);
+// document.getElementById("btn2").addEventListener("click", miniCh2);
+// document.getElementById("btn3").addEventListener("click", miniCh3);
+// document.getElementById("btn4").addEventListener("click", miniCh4);
+// document.getElementById("btn5").addEventListener("click", miniCh5);
+// document.getElementById("btn6").addEventListener("click", miniCh6);
+// document.getElementById("btn7").addEventListener("click", miniCh7);
+// document.getElementById("btn8").addEventListener("click", miniCh8);
+// document.getElementById("btn9").addEventListener("click", miniCh9);
+
+document.querySelectorAll('.btn1').forEach(item => {
+  item.addEventListener('click', event => {
+   miniCh1();
+  })
+})
+document.querySelectorAll('.btn2').forEach(item => {
+  item.addEventListener('click', event => {
+   miniCh2();
+  })
+})
+document.querySelectorAll('.btn3').forEach(item => {
+  item.addEventListener('click', event => {
+   miniCh3();
+  })
+})
+document.querySelectorAll('.btn4').forEach(item => {
+  item.addEventListener('click', event => {
+   miniCh4();
+  })
+})
+document.querySelectorAll('.btn5').forEach(item => {
+  item.addEventListener('click', event => {
+   miniCh5();
+  })
+})
+document.querySelectorAll('.btn6').forEach(item => {
+  item.addEventListener('click', event => {
+   miniCh6();
+  })
+})
+document.querySelectorAll('.btn7').forEach(item => {
+  item.addEventListener('click', event => {
+   miniCh7();
+  })
+})
+document.querySelectorAll('.btn8').forEach(item => {
+  item.addEventListener('click', event => {
+   miniCh8();
+  })
+})
+document.querySelectorAll('.btn9').forEach(item => {
+  item.addEventListener('click', event => {
+   miniCh9();
+  })
+})
 
 // ---------- NOTES ---------//
 // function fetchEx(){

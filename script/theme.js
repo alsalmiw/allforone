@@ -14,7 +14,7 @@ function setBtnsColors(){
     let btn;
     for(let i=1; i<=9; i++)
     {
-    btn=document.getElementById(`btn${i}`);
+    btn=document.getElementsByClassName(`btn${i}`);
     btn.style=`background: var(--btn${i})`;
     }
 }
@@ -56,3 +56,4 @@ toggleSwich.addEventListener('change', function(e){
  }
 
 setBtnsColors();
+

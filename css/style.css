@@ -46,6 +46,33 @@ body{
     width: 100vw;
     padding: 25px;
 } */
+.btn1{
+  background-color: var(--btn1);
+}
+.btn2{
+  background-color: var(--btn2);
+}
+.btn3{
+  background-color: var(--btn3);
+}
+.btn4{
+  background-color: var(--btn4);
+}
+.btn5{
+  background-color: var(--btn5);
+}
+.btn6{
+  background-color: var(--btn6);
+}
+.btn7{
+  background-color: var(--btn7);
+}
+.btn8{
+  background-color: var(--btn8);
+}
+.btn9{
+  background-color: var(--btn9);
+}
 
 .theme-switch-wrapper{
     width: 100vw;
@@ -277,8 +304,11 @@ h2{
   @media screen and (max-width:600px) {
     .pageContainer{
       padding: 20px;
-      max-height: 78vh;
+      max-height: 68vh;
+      overflow:auto;
   }
+
+ 
 
     .btn-secondary{
       position: relative;
@@ -319,7 +349,7 @@ h2{
   }
 
 .content-body{
-    min-height: 100vh;
+  height: 87.5vh;
 }
 
 .qPages{
@@ -359,4 +389,52 @@ h2{
     margin-right: 5px;
   }
 
+  /* DROP MENU */
+  
+  .drop-menu{
+    background-color: var(--secondaryVarient);
+    opacity: 70%;
+    display: flex;
+    justify-content: end;
+    height: 5.5vh;
   }
+  .fa-bars{
+    font-size: 35px;
+    padding: 5px 20px 5px 35px;
+    color: var(--secondaryColor);}
+
+  .drop-nav{
+    height: 0vh;
+    position: relative;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    transform: translateY(-100vh);
+    }
+    
+    .drop-nav button{
+    height: 11.1%;
+    border: 0;
+    }
+    .overlay-slide-down{
+    transition: all 1s ease-in-out;
+    transform: translateY(0);
+    height: 87.5vh;
+  }
+ 
+  .overlay-slide-up{
+    transition: all 1s ease-in-out;
+    transform: translateY(-100vh);
+  }
+
+ .content-body{
+    height: 87.5vh;
+  } 
+  .qPages{
+    margin-top: 0;
+  }
+
+  }
+  
+
+  
